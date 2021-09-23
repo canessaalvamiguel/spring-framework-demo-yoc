@@ -24,7 +24,7 @@ async function loadUsers(){
                 '<td>'+user.email+'</td>'+
                 '<td>'+user.telephone+'</td>' +
                 '<td>' +
-                    '<a href="#" class="btn btn-danger btn-circle btn-sm">' +
+                    '<a href="#" onclick="deleteUser('+user.id+')" class="btn btn-danger btn-circle btn-sm">' +
                         '<i class="fas fa-trash"></i>' +
                     '</a>' +
                 '</td>' +
@@ -33,4 +33,26 @@ async function loadUsers(){
     }
 
     document.querySelector('#usersTable tbody').outerHTML = listadoHtml;
+}
+
+async  function deleteUser(id){
+
+    if(!confirm("¿Are you sure you want to delete the user?"))
+        return;
+
+    const request = await fetch('api/users/'+ id, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+    const responseStatus = await request.status;
+
+    if(responseStatus == 200){
+        alert("Sucess!! User deleted successfully");
+        location.reload();
+    }else{
+        alert("Error!! User couldn't be deleted");
+    }
 }
