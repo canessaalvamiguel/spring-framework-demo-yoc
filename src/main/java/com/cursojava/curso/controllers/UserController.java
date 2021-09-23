@@ -4,8 +4,6 @@ import com.cursojava.curso.dao.UserDao;
 import com.cursojava.curso.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,18 +27,4 @@ public class UserController {
         userDao.create(user);
     }
 
-    @RequestMapping(value = "api/user/{id}", method = RequestMethod.GET)
-    public User getUser(@PathVariable Long id){
-        return null;
-    }
-
-    @RequestMapping(value = "temp_237")
-    public User editUser(){
-        return null;
-    }
-
-    @RequestMapping(value = "temp_233")
-    public User findUser(){
-        return null;
-    }
 }
