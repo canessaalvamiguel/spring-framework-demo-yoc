@@ -16,13 +16,14 @@ async function loadUsers(){
 
     let listadoHtml = '';
     for (let user of users){
+        let telephone = user.telephone == null ? '-' : user.telephone;
         let userHtml =
             '<tr>' +
                 '<td>'+user.id+'</td>'+
                 '<td>'+user.name+'</td>'+
                 '<td>'+user.lastname+'</td>'+
                 '<td>'+user.email+'</td>'+
-                '<td>'+user.telephone+'</td>' +
+                '<td>'+telephone+'</td>' +
                 '<td>' +
                     '<a href="#" onclick="deleteUser('+user.id+')" class="btn btn-danger btn-circle btn-sm">' +
                         '<i class="fas fa-trash"></i>' +
