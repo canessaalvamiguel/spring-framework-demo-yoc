@@ -24,5 +24,13 @@ async function createUser(){
         },
         body: JSON.stringify(data)
     });
-    const response = await request;
+
+    const responseStatus = await request.status;
+
+    if(responseStatus == 200){
+        alert("Sucess!! User created successfully");
+       window.location.href = "login.html";
+    }else{
+        alert("Error!! User couldn't be created");
+    }
 }
