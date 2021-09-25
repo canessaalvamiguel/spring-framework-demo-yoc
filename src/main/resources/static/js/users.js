@@ -2,6 +2,7 @@
 $(document).ready(function() {
   loadUsers();
   $('#usersTable').DataTable();
+  setUserName();
 });
 
 function getHeaders(){
@@ -10,6 +11,10 @@ function getHeaders(){
         'Content-Type': 'application/json',
         'Authorization': localStorage.token
     };
+}
+
+function setUserName(){
+    document.getElementById('txt-email-user').outerHTML = localStorage.email;
 }
 
 async function loadUsers(){
