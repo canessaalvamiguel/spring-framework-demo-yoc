@@ -12,5 +12,5 @@ public interface UserDao {
 
     void create(User user);
 
-    boolean validateLogin(User user);
+    User findUserByLoginCredentials(User user);
 }
